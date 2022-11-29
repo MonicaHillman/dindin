@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="cabecalho">
+    <h1>Logo</h1>
+  </header>
+
+  <main>
+    <section class="container">
+      <nav class="sidebar">
+        <a href="#">Home</a>
+        <a href="#">Sei la</a>
+        <a href="#">Sei la</a>
+        <a href="#">Sei la</a>
+        <a href="#">Sei la</a>
+      </nav>
+
+      <section class="dados">
+
+        <div class="chart">
+          <h2>Variação da moeda desde o login</h2>
+          <canvas id="myChart"></canvas>
+          <button id="meuBotao">Comprar moeda</button>
+        </div>
+
+        <div class="investimentos">
+          <h2>Meus investimentos</h2>
+          <ul id="listaInvestimentos">
+          </ul>
+          <h2>Total adquirido: <p id="valorGasto"></p>
+          </h2>
+        </div>
+
+      </section>
+    </section>
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
