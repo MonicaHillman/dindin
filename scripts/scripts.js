@@ -1,16 +1,16 @@
 import imprimirCotacao from './imprimirCotacao.js'
 
-let worker;
+let workerDolar;
 let workerIene;
 const graficoDolar = document.getElementById('graficoDolar');
 const graficoIene = document.getElementById('graficoIene');
 let valor = 0;
 
 //iniciando worker
-worker = new Worker('worker.js');
+workerDolar = new Worker('./scripts/workers/workerDolar.js');
 
 //enviando mensagem pro worker do dólar
-worker.postMessage('usd');
+workerDolar.postMessage('usd');
 
 //cria um gráfico com a lib chart.js
 const chart = new Chart(graficoDolar, {
@@ -35,7 +35,7 @@ function geraHorario() {
 }
 
 //quando receber uma mensagem do worker
-worker.addEventListener("message", event => {
+workerDolar.addEventListener("message", event => {
     let tempo = geraHorario(event);
     valor = event.data.ask;
     imprimirCotacao("dolar", valor)
@@ -69,7 +69,7 @@ const chartIene = new Chart(graficoIene, {
 });
 
 //cria worker pro iene
-workerIene = new Worker("workerIene.js");
+workerIene = new Worker("./scripts/workers/workerIene.js");
 workerIene.postMessage('iene');
 
 //quando recebe mensagem do worker
